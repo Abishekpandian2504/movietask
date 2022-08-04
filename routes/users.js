@@ -61,7 +61,7 @@ const config = require('config');
 const auth = require("../middleware/auth");
 
 router.get("/me", auth, async (req, res) => {
-  const user = await User.findById(req.user._id).select("-password");
+  const user = await User.find().select("-password");
   res.send(user);
 });
 
